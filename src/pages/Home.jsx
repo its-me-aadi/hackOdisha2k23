@@ -23,9 +23,12 @@ export default function Home(props) {
     })
   }, [])
 
+  function Logout(){
+    auth.signOut();
+}
   return (
     <div>
-        HII
+        <button onClick={Logout}>Logout</button>
     </div>
   )
 }

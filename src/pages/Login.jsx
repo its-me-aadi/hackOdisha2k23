@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/login.css"
-import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, sendPasswordResetEmail} from "firebase/auth";
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, sendPasswordResetEmail,createUserWithEmailAndPassword} from "firebase/auth";
 
 function Login(props) {
     function StateChange() {
@@ -46,6 +46,23 @@ function Login(props) {
                 document.getElementById("error").innerHTML = error.message
             });
     }
+    function Signup(){
+        createUserWithEmailAndPassword(auth, credentials.email, credentials.password)
+        .then((userCredential) => {
+        // // Signed in 
+        // const user = userCredential.user;
+        // // ...
+        alert("user created");
+        })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+        alert(errorCode," ",errorMessage);
+        });
+    }
+
+
     return (
         <div >
             <div className="card-header">
@@ -63,6 +80,7 @@ function Login(props) {
                     </label></center><br /><br />
                 <a href="#" onClick={ForgotPass} className="forgot-pass">Forgot Password</a>
                 <center><button type="submit" className="btn btn-primary">Login</button>
+                <button onClick={Signup} class="btn btn-secondary">Sign Up</button>
                 </center>
             </form>
         </div>)
