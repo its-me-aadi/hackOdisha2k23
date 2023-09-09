@@ -38,7 +38,7 @@ function Login(props) {
         StateChange();
     }
     function ForgotPass() {
-        sendPasswordResetEmail(credentials.email)
+        sendPasswordResetEmail(auth,credentials.email)
             .then(() => {
                 alert("Reset link sent to your email id")
             })
@@ -71,12 +71,12 @@ function Login(props) {
             <form onSubmit={Loogin}id="loginForm" className="card-body px-5 py-4">
                 <center><small><span id="error" style={{ color: "red" }}></span></small></center>
                 <center><label className="custom-field">
-                    <input id="email" type="text" className="input" required  onChange={Onchange} name="email" value={credentials.email}/>
-                    <span className="placeholder" >Email Id</span>
+                    <input id="email" type="text" className="input" required  onChange={Onchange} name="email" value={credentials.email} placeholder="mail"/>
+                    {/* <span className="placeholder" >Email Id</span> */}
                 </label><br />
                     <label className="custom-field">
-                        <input id="password" type="password" className="input" onChange={Onchange} name="password" value={credentials.password} required />
-                        <span className="placeholder" > Password</span>
+                        <input id="password" type="password" className="input" onChange={Onchange} name="password" value={credentials.password} placeholder="password"/>
+                        {/* <span className="placeholder" > Password</span> */}
                     </label></center><br /><br />
                 <a href="#" onClick={ForgotPass} className="forgot-pass">Forgot Password</a>
                 <center><button type="submit" className="btn btn-primary">Login</button>
