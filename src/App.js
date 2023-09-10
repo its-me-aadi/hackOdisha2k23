@@ -20,15 +20,15 @@ function App() {
     appId: "1:578959541864:web:49271efc0b9dc5307e5ddd",
     measurementId: "G-M0V2KGSR5J"
   };
-  
+
   const app = initializeApp(firebaseConfig);
   return (
     <Router>
-    <Routes>
-      <Route path="/" element={<Home app={app} />} />
-      <Route path="/login" element={<Login app={app} />} />
-    </Routes>
-  </Router>
+      <Routes>
+        <Route path="/" element={<Home app={app} />} />
+        <Route path="/login" element={<Login app={app} />} />
+      </Routes>
+    </Router>
   );
 }
 
