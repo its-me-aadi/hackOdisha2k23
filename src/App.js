@@ -2,6 +2,7 @@ import React from "react";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import { initializeApp } from "firebase/app";
+
 import {
   BrowserRouter as Router,
   Routes,
